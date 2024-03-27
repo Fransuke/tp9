@@ -3,6 +3,25 @@
 #include "pile.h"
 #include "file.h"
 
+void testFile(T_File *mafile ){ 
+	initFile(mafile);
+	T_Elt elts=1;
+	ajouter(mafile, &elts);
+	elts=2;
+	ajouter(mafile, &elts);
+	retirer(mafile, &elts); //cela retire le premier element de la file donc 1 ici et cela laisse le 2
+	afficherFile(mafile);
+}
+
+void testPile(T_Pile *mapile){
+	initPile(mapile);
+	T_Elt elt=1;
+	empiler(mapile, elt);
+	elt=2;
+	empiler(mapile, elt);
+	depiler(mapile, &elt); //cela retire le dernier element placé sur le haut de la pile donc ici 2, donc cela laisse le 1 qui était le premier élément de la pile
+	afficherPile(mapile);
+}
 
 int menu()
 {
@@ -34,10 +53,11 @@ switch (chx)
 	{
 	case 1 :  
 		//testez toutes vos fonctions par un jeu de test de votre choix
-		//testPile(&mapile); //TP9 partie 1 : à ecrire 
+		testFile(&mafile);// //TP9 partie 1 : à ecrire 
 		break;
 	case 2 : //testez toutes vos fonctions par un jeu de test de votre choix
-		// testFile(&mafile); //TP9 partie 1 : à ecrire 
+		testPile(&mapile); //TP9 partie 1 : à ecrire 
+
 		break; 
 	case 3 : 
 		//scanf("%s",chaine); //une chaine de longueur <=MAX

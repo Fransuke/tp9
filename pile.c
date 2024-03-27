@@ -1,61 +1,56 @@
 #include "pile.h"
-
-
-
-void initPile( T_Pile * P)
-{
+void initPile(T_Pile *P) {
+    P->nbElts = -1; 
 }
 
 
-int pilepleine(const  T_Pile *P)
-{
-return 0;
+int pilePleine(const T_Pile *P) {
+    return P->nbElts == MAX - 1;
 }
 
 
-
-int pilevide(const  T_Pile *P)
-{
-return 1;
+int pileVide(const T_Pile *P) {
+    return P->nbElts == -1; 
 }
 
 
-
-int empiler( T_Pile *P, T_Elt e) //renvoie 0 si pile pleine, sinon 1
-{
-return 0;
+int empiler(T_Pile *P, T_Elt e) {
+    if (pilePleine(P)) { 
+        return 0; 
+    }
+    P->nbElts++; 
+    P->Elts[P->nbElts] = e; 
+    return 1; 
 }
 
 
-
-int depiler( T_Pile *P, T_Elt *pelt)  //renvoie 0 si pile vide, sinon 1
-{
-return 0;
+int depiler(T_Pile *P, T_Elt *pelt) {
+    if (pileVide(P)) { 
+        return 0; 
+    }
+    *pelt = P->Elts[P->nbElts]; 
+    P->nbElts--; 
+    return 1; 
 }
 
 
-
-T_Elt sommet(const  T_Pile *P)
-{
-return 0;
+T_Elt sommet(const T_Pile *P) {
+    if (pileVide(P)) { 
+        return -1;
+    }
+    return P->Elts[P->nbElts]; 
 }
 
 
-
-int hauteur(const  T_Pile *P)
-{
-return 0;
+int hauteur(const T_Pile *P) {
+    return P->nbElts + 1;
 }
 
 
-void afficherPile(  T_Pile *P)
-{
+void afficherPile( T_Pile *P) {
+    printf("Contenu de la pile : ");
+    for (int i = 0; i <= P->nbElts; i++) { 
+        printf("%d ", P->Elts[i]); 
+    }
+    printf("\n");
 }
-
-
-
-
-
-
-
-

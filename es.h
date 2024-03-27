@@ -2,7 +2,7 @@
 #include <string.h>
 
 
-typedef int T_Elt; //TAD
+typedef int T_Elt; //TAD TYPE ABSTRAIT DE DONNEES
 
 
 // ou
